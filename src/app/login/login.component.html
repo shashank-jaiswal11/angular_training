@@ -1,0 +1,61 @@
+<p>login works!</p>
+<style>
+    .v{
+      border: 3px solid green;  
+      background-color: yellow;
+    }
+    .i{
+        border: 3px solid red;  
+      background-color: yellow; 
+    }
+</style>
+<div style="width:500px; margin-left: 300px;">
+
+
+<form #frm="ngForm" (ngSubmit)="validate(frm.value)">
+    {{frm.value | json}}
+    <span class="material-icons" style="color:blue;font-size:100px;">
+        person
+        </span>
+    <input type="text" name="uname" #u="ngModel" required ngModel minlength="2" [class.v]="u.valid && u.touched" [class.i]="u.invalid && u.touched" class="form-control"/>
+        <!--{{u.touched}}<br>
+        {{u.untouched}}<br> -->
+        <!-- {{u.dirty}} -->
+        {{u.valid}}
+        <div *ngIf="u.errors?.['required'] && u.touched">Enter Username</div>
+        <div *ngIf="u.errors?.['minlength'] && u.touched">Min length is 5</div>
+    <span class="material-icons"  style="color:blue;font-size:100px;">
+        key
+        </span>
+    <input type="password" name="password"  #p="ngModel" required ngModel  [class.v]="p.valid && p.touched" [class.i]="p.invalid && p.touched" class="form-control"  class="form-control"/>
+    <div *ngIf="p.errors?.['required'] && p.touched">Enter Password</div>
+    <div *ngIf="p.errors?.['maxlength'] && p.touched">Max length is 8</div>
+
+    <input type="submit" [disabled]="frm.form.invalid" value="Login" class="btn btn-primary">
+    <a routerLink="/register" class="btn btn-info">New User?Click here</a>
+  
+</form>
+</div>
+<div style="background-color: steelblue;color: white;">
+    {{status}}
+</div>
+
+<!-- <div style="width:500px; margin-left: 300px;">
+<form>
+    <span class="material-icons">
+        person
+        </span>
+    <input type="text" id="uid" class="form-control"/>
+
+    <span class="material-icons">
+        key
+        </span>
+    <input type="password" id="pwd" class="form-control"/>
+
+    <input type="button" value="Login" class="btn btn-primary" (click)="validate()"/>
+    <a routerLink="/register" class="btn btn-info">New User?Click here</a>
+</form>
+</div>
+<div style="background-color: steelblue;color: white;">
+    {{status}}
+</div> -->

@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-md-4" *ngFor = "let i of prod">
+        <div><img src="{{i.pimage}}"/></div>
+        <div>{{i.pid}}</div>
+        <div>{{i.pname |uppercase}}</div>
+        <div>{{i.price }}</div>
+        <div>{{i.price | discount: 30 | currency: 'INR'}}</div>
+        <div>{{i.qty }}</div>
+       <div><a routerLink="/buy" [queryParams]="{a:i.pid, b:i.pname,c:i.price,d:i.pimage}" class="btn btn-primary">Buy</a></div>
+        </div>
+    </div>

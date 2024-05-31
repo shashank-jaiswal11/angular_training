@@ -1,0 +1,9 @@
+<p>angfeatures works!</p>
+<ng-container *ngIf="b; then one; else two"> </ng-container>
+ <ng-template #one>
+    <div>condition one executed</div>
+  </ng-template>
+
+  <ng-template #two>
+    <div>condition two executed</div>
+  </ng-template>

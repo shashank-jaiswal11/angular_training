@@ -1,0 +1,12 @@
+<p>buy works!</p>
+<img src="{{pimage}}"/><br><br>
+{{pid}}<br><br>
+{{pname}}<br><br>
+{{price}}<br><br>
+<div style="width:500px;">
+<label>Enter Quantity</label>
+<input type="number" name="qty" [(ngModel)]="qty" class="form-control"></div>
+<input type="submit" value="Confirm Buy" (click)="placeorder()" class="btn btn-primary">
+<div class="btn btn-info">
+    Total Price : {{qty * price}}
+</div>

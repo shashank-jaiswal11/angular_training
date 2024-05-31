@@ -1,0 +1,33 @@
+<p>products works!</p>
+<style>
+.h1{
+    color: red;
+    background-color: yellow;
+
+}
+</style>
+
+
+<!-- <div *ngFor="let item of prod;let i =index;let f= first;let l= last;let e = even;let o = odd;"[class.h1]="e">
+{{item.pid}}<br>
+{{item.pname}}<br>
+{{item.price}}<br>
+{{item.qty}}<br>
+<img src="{{item.pimage}}"/><br>
+
+
+
+</div> -->
+<input type="button" value="Hide/Show" class="btn btn-info" (click)="hideshowimage()">
+
+<div class="row">
+    <div class="col-md-4" *ngFor = "let i of prod">
+        <div *ngIf="toggle"><img src="http://localhost:3000/{{i.pimage}}"/></div>
+        <div>{{i.pid}}</div>
+        <div>{{i.pname |uppercase}}</div>
+        <div>{{i.price }}</div>
+        <div>{{i.price | discount: 30 | currency: 'INR'}}</div>
+        <div>{{i.qty }}</div>
+       <div><a routerLink="/buy" [queryParams]="{a:i.pid, b:i.pname,c:i.price,d:i.pimage}" class="btn btn-primary">Buy</a></div>
+        </div>
+    </div>
